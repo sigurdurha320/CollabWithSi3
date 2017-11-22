@@ -14,7 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-/*
-Route::get('sessions', 'SessionsController');
-Route::get('login', 'SessionsController@create');
-Route::get('logout', 'SessionsController@destroy');*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('article', 'ArticleController@index');
+Route::post('article', 'ArticleController@store');
+Route::put('article', 'ArticleController@update');
+Route::delete('article', 'ArticleController@destroy');
+Route::get('/article/{article}', 'ArticleController@show')->name('article');
