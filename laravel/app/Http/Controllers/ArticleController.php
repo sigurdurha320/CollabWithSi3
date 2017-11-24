@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller
+use App\Http\Controllers\Controller;
 use App\Article;
 
 
@@ -12,9 +12,9 @@ class ArticleController extends Controller
 {
     public function index()
     {
-    	$articles = DB::table('article')->get();
+    	$articles = Article::all();
 
-    	return view('home');
+    	return view('home', compact('articles'));
     }
 
     public function store()
@@ -32,10 +32,8 @@ class ArticleController extends Controller
 
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
-    	$article = Article::find($id);
-
         return view('article.view', compact('article'));
     }
 }

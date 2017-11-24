@@ -5,17 +5,12 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Article</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+                @foreach($articles as $article)
+                    <div class="panel-heading"><a href="/article/{{ $article->id}}"><h3>{{$article->title}}</h3></a></div>
+                    <div class="panel-body">
+                       stuff
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
