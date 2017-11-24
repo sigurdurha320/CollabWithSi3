@@ -6,4 +6,4 @@
 Miðlari/Server: [SI](http://138.68.160.129 "SI")
 
 #### Project Description
-Coming soon
+Hálfgerður facebook klóni með ekki eins mörgum features notum laravel fyrir authentication og ajax til að sækja af databaseinu inn á laravel.
