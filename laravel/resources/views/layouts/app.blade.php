@@ -65,6 +65,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{ url('/home') }}">Home</a>
+                            </li>
                         @endguest
                     </ul>
                 </div>
