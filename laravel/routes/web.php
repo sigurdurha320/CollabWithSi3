@@ -24,3 +24,5 @@ Route::post('article', 'ArticleController@store');
 Route::put('article', 'ArticleController@update');
 Route::delete('article', 'ArticleController@destroy');
 Route::get('/article/{article}', 'ArticleController@show')->name('article');
+
+Route::post('comment/{id}', 'CommentController@store');

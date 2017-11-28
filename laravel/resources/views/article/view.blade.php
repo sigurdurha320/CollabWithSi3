@@ -10,6 +10,14 @@
                 <div class="panel-body">
                     	
                 </div>
+                <form method="POST">
+                	<div class="form-group">
+                		<textarea name="contents" class="form-contol"></textarea>
+                	</div>
+                	<div class="form-group">
+                		<button type="submit">add comment</button>
+                	</div>	
+                </form>
                 <div class="panel-body">
                 	@foreach($article->comments as $comment)
                 		<li>{{$comment->contents}}</li>
