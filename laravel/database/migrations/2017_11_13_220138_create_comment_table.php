@@ -15,8 +15,8 @@ class CreateCommentTable extends Migration
     {
         Schema::create('comment', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userID')->references('id')->on('users')->onDelete('cascade');//who owns the comment
-            $table->integer('articleID')->references('id')->on('article')->onDelete('cascade');//on what artical is commented on
+            $table->integer('users_id')->references('id')->on('users')->onDelete('cascade');//who owns the comment
+            $table->integer('article_id')->references('id')->on('article')->onDelete('cascade');//on what artical is commented on
             $table->text('contents');//content of a comment
             $table->timestamps();
         });

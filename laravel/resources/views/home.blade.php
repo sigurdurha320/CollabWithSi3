@@ -8,7 +8,7 @@
                 @foreach($articles as $article)
                     <div class="panel-heading"><a href="/article/{{ $article->id}}"><h3>{{$article->title}}</h3></a></div>
                     <div class="panel-body">
-                       stuff
+                       
                     </div>
                 @endforeach
             </div>

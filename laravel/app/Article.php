@@ -9,6 +9,7 @@ class Article extends Model
 	protected $table = 'article';
 	protected $fillable = ['title','privacy','image'];
 
+
     public function comments()
     {
     	return $this->hasMany(Comment::class);
