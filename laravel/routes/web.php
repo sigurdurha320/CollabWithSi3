@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'ArticleController@index')->name('home');
 
+Route::get('/postform', 'ArticleController@postform')->name('postform');
 //Route::get('article', 'ArticleController@index');
 Route::post('article', 'ArticleController@store');
 Route::put('article', 'ArticleController@update');
@@ -26,3 +27,4 @@ Route::delete('article', 'ArticleController@destroy');
 Route::get('/article/{article}', 'ArticleController@show')->name('article');
 
 Route::post('comment/{id}', 'CommentController@store');
+Route::get('/img/{id}', 'ImageController@index')->name('image');
