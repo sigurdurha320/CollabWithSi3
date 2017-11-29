@@ -19,7 +19,7 @@ class ArticleController extends Controller
 
     public function postform()
     {
-        return view('postform');
+        return view('article/postform');
     }
 
     public function store()
