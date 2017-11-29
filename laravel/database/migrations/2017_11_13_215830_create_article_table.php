@@ -13,18 +13,24 @@ class CreateArticleTable extends Migration
      */
     public function up()
     {
+         Schema::create('image', function (Blueprint $table) {
+            $table->increments('id');
+            $table->binary('img');
+        });
+
         Schema::create('article', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100);
-            $table->integer('userID')->references('id')->on('users')->onDelete('cascade');
-            $table->binary('image');
+            $table->integer('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('image_id')->references('id')->on('image')->onDelete('set null')->nullable();
+            $table->text('textContent')->nullable();
             $table->tinyInteger('privacy');
             $table->timestamps();
         });
 
         Schema::create('article_viewable', function (Blueprint $table) {
-            $table->integer('userID')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('articleID')->references('id')->on('article')->onDelete('cascade');
+            $table->integer('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('article_id')->references('id')->on('article')->onDelete('cascade');
         });
     }
 
@@ -37,5 +43,6 @@ class CreateArticleTable extends Migration
     {
         Schema::dropIfExists('article_viewable');
         Schema::dropIfExists('article');
+        Schema::dropIfExists('image');
     }
 }
