@@ -10,16 +10,26 @@
                     <div class="panel-body">
 
                     </div>
-                    <form method="POST">
-                        <label class="form-group">Title</label>
-                        <input class="form-group" type="text" name="article.title"><br>
-                        <div class="form-group">
-                            <textarea name="contents" class="form-contol"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit">Submit</button>
-                        </div>
-                    </form>
+                    <div class="container">
+                        <form method="POST" action="article">
+                            <div class="form-group">
+                                <label class="form-group">Title</label>
+                                <br>
+                                <input class="form-group" type="text" name="article_title" required><br>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-group">Text</label>
+                                <br>
+                                <textarea name="article_textContent" class="form-contol"></textarea>
+                            </div>
+                            <!--div class="form-group">
+                                <button class="btn btn-primary">Upload image</button>
+                            </div-->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="panel-body">
                     </div>
                 </div>
@@ -27,9 +37,3 @@
         </div>
     </div>
 @endsection
-
-
-
-
-/*[article.id, article.title, article.user_id, article.image_id, article.textContent, article.privacy]
-[image.id, image.img]*/

@@ -22,9 +22,16 @@ class ArticleController extends Controller
         return view('article/postform');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $article = new Article;
 
+        $article->title = $request->article_title;
+        $article->textContent = $request->article_textContent;
+        $article->privacy = 0;
+        $article->image = null;
+
+        $article->save($article);
     }
 
     public function update()
@@ -39,7 +46,7 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        return "kek";
-        //return view('article/view', compact('article'));
+        //return $article;
+        return view('article/view', compact('article'));
     }
 }
