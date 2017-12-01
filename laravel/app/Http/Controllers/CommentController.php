@@ -11,6 +11,7 @@ class CommentController extends Controller
     public function store(Request $request, Article $article)
     {
     	$article->comments()->create($request->all());	
-    	return back();
+    	echo "fak";
+    	return $request;
     }
 }
