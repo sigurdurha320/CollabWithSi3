@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-	protected $table = 'article';
+    protected $primaryKey = 'id';
+	protected $table = 'comment';
 	protected $fillable = ['contents'];
     public function article()
     {
