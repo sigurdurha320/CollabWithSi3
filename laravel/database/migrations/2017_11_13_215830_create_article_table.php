@@ -21,7 +21,7 @@ class CreateArticleTable extends Migration
         Schema::create('article', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100);
-            $table->integer('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('image_id')->references('id')->on('image')->onDelete('set null')->nullable();
             $table->text('textContent')->nullable();
             $table->tinyInteger('privacy');
