@@ -39,7 +39,7 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        return "kek";
-        //return view('article/view', compact('article'));
+        //return $article;
+        return view('article/view', compact('article'));
     }
 }
