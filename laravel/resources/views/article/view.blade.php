@@ -21,6 +21,7 @@
 
                 <div class="panel-body">
                     <form method="POST" action="/comment/{{$article->id}}">
+                    {{ csrf_field() }}
                         <div class="form-group">
                             <textarea name="contents" class="form-contol"></textarea>
                         </div>

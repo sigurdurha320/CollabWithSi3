@@ -22,16 +22,15 @@ class ArticleController extends Controller
         return view('article/postform');
     }
 
-    public function store(Request $request)
+    public function store()    
     {
-        $article = new Article;
-
-        $article->title = $request->article_title;
-        $article->textContent = $request->article_textContent;
-        $article->privacy = 0;
-        $article->image = null;
-
-        $article->save($article);
+        Article::create([
+            'title' => request('article_title'),
+            'textContent' => request('article_textContent'),
+            'image_id' => null,
+            'privacy' => 0
+            ]);
+        return redirect('/home');
     }
 
     public function update()

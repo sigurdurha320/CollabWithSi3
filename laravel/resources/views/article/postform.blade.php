@@ -11,7 +11,9 @@
 
                     </div>
                     <div class="container">
-                        <form method="POST" action="article">
+                        <form method="POST" action="/article">
+                        {{ csrf_field() }}
+
                             <div class="form-group">
                                 <label class="form-group">Title</label>
                                 <br>
@@ -22,11 +24,12 @@
                                 <br>
                                 <textarea name="article_textContent" class="form-contol"></textarea>
                             </div>
-                            <!--div class="form-group">
-                                <button class="btn btn-primary">Upload image</button>
-                            </div-->
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <label for="exampleFormControlFile1">upload image   </label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                              </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Publish</button>
                             </div>
                         </form>
                     </div>

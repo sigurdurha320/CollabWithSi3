@@ -8,10 +8,9 @@ use App\Comment;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, Article $article)
+    public function store(Article $article)
     {
-    	$article->comments()->create($request->all());	
-    	echo "fak";
-    	return $request;
+    	$article->addComment(request('contents'));
+    	return redirect('/article/'+$article->id);;
     }
 }
