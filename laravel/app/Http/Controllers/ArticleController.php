@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Article;
@@ -28,7 +29,8 @@ class ArticleController extends Controller
             'title' => request('article_title'),
             'textContent' => request('article_textContent'),
             'image_id' => null,
-            'privacy' => 0
+            'privacy' => 0,
+            'users_id' => Auth::id()
             ]);
         return redirect('/home');
     }

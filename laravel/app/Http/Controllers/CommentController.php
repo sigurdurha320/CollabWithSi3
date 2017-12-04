@@ -11,6 +11,6 @@ class CommentController extends Controller
     public function store(Article $article)
     {
     	$article->addComment(request('contents'));
-    	return redirect('/article/'+$article->id);;
+    	return back();
     }
 }

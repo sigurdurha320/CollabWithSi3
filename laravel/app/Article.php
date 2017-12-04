@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Article extends Model
 {
     protected $primaryKey = 'id';
 	protected $table = 'article';
-	protected $fillable = ['title','privacy','image_id','textContent'];
+	protected $fillable = ['title','privacy','image_id','textContent','users_id'];
 
 
     public function comments()
@@ -18,10 +19,15 @@ class Article extends Model
     }
     public function addComment($contents)
     {
-    	return $this;
     	Comment::create([
-    			'contents' =>	request('contents'),
-    			'article_id' => $this->id
+
+    			'article_id' => $this->id,
+    			'contents' =>	(string)request('contents'),
+    			'users_id' => Auth::id()
     		]);
+    }
+    public function user()
+    {
+    	return $this->belongsTo(User::class);
     }
 }
