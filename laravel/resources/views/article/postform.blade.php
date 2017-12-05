@@ -26,7 +26,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">upload image   </label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input name="article_image" type="file" class="form-control-file" id="exampleFormControlFile1">
                               </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Publish</button>

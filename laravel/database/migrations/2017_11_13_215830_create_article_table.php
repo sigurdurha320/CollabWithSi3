@@ -13,16 +13,12 @@ class CreateArticleTable extends Migration
      */
     public function up()
     {
-         Schema::create('image', function (Blueprint $table) {
-            $table->increments('id');
-            $table->binary('img');
-        });
 
         Schema::create('article', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100);
             $table->integer('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('image_id')->references('id')->on('image')->onDelete('set null')->nullable();
+            $table->binary('img')->nullable();
             $table->text('textContent')->nullable();
             $table->tinyInteger('privacy');
             $table->timestamps();
@@ -43,6 +39,5 @@ class CreateArticleTable extends Migration
     {
         Schema::dropIfExists('article_viewable');
         Schema::dropIfExists('article');
-        Schema::dropIfExists('image');
     }
 }

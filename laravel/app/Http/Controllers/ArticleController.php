@@ -15,23 +15,31 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
 
-        return view('home', compact('articles'));
+        return view('home', compact(['articles']));
     }
 
     public function postform()
     {
-        return view('article/postform');
+        if (Auth::guest()){
+         return redirect('/login');
+        }
+        else{
+         return view('article/postform');
+        }
+
     }
 
     public function store()    
     {
-        Article::create([
+        if (!Auth::guest()) {
+            Article::create([
             'title' => request('article_title'),
             'textContent' => request('article_textContent'),
-            'image_id' => null,
             'privacy' => 0,
-            'users_id' => Auth::id()
+            'users_id' => Auth::id(),
+            'img' => request('article_image')
             ]);
+        }
         return redirect('/home');
     }
 

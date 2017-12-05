@@ -27,4 +27,4 @@ Route::delete('article', 'ArticleController@destroy');
 Route::get('/article/{article}', 'ArticleController@show')->name('article');
 
 Route::post('comment/{article}', 'CommentController@store');
-Route::get('/img/{id}', 'ImageController@store')->name('image');
+Route::get('/img/{article}', 'ImageController@fetch')->name('image');

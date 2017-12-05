@@ -10,7 +10,9 @@ class CommentController extends Controller
 {
     public function store(Article $article)
     {
-    	$article->addComment(request('contents'));
+    	if (strlen(request('contents'))) {
+    		$article->addComment(request('contents'));
+    	}
     	return back();
     }
 }

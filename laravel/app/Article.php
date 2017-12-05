@@ -9,7 +9,7 @@ class Article extends Model
 {
     protected $primaryKey = 'id';
 	protected $table = 'article';
-	protected $fillable = ['title','privacy','image_id','textContent','users_id'];
+	protected $fillable = ['title','privacy','img','textContent','users_id'];
 
 
     public function comments()
